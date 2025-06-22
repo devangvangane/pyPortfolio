@@ -1,0 +1,24 @@
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill h4 {
+  font-size: 20px;
+  color: #1a629a;
+  font-weight: bold;
+}
+
+.progress-bar {
+  background-color: #f0f0f0;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #82bc60;
+  border-radius: 5px;
+}

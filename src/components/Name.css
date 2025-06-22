@@ -1,0 +1,73 @@
+
+
+.nameCard{
+    background-color: #1a629a;
+    /* right: 90px; */
+    top: 20px;
+}
+.nameCard *{
+    background-color: #1a629a;
+}
+
+.console {
+  font-family: "Courier New", monospace;
+  white-space: nowrap;  
+  overflow: hidden;     
+   
+  width: 0; /* Start with width of 0 */
+ 
+}
+
+
+.console.h5 {
+    animation: typingH5 3s steps(30) 1s forwards;
+    color: #fce91b;
+    font-size: 3vw
+}
+
+@keyframes typingH5 {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(35ch); 
+  }
+}
+
+.console.h4 {
+    color: #fce91b;
+    font-size: 2.7vw;
+  animation: typingH4 3s steps(30) 4s forwards;
+}
+
+
+@keyframes typingH4 {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(22ch);
+  }
+}
+
+
+.button {
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
+}
+
+.r{
+    background-color: #fe9929;
+}
+.y{
+    background-color: #fce91b;
+}
+.g{
+    background-color: #82bc60;
+}

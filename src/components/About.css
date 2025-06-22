@@ -1,0 +1,20 @@
+.aMain, .aMain *{
+    background-color: #ffd327;
+    color: #1a629a;
+    
+    padding: 0%;
+    margin: 0%;
+    top: 20px;
+    
+}
+.aboutText{
+    font-size: 4vw;
+}
+.aboutInfo{
+    font-size: 1.3vw;
+}
+
+.aboutInfo a{
+    text-decoration: none;
+    color: #1a629a;
+}
