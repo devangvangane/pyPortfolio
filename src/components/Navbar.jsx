@@ -1,37 +1,32 @@
 import React from 'react';
 import "./Navbar.css"
-import "bootstrap"
-
-
+import Name from "./Name";
+import About from './About';
+import Skills from './Skills';
 
 function Navbar() {
   return (
-    
-        <nav class="navbar navbar-expand-lg pe-5">
-            <div class="container-fluid">
-              {/* <a class="navbar-brand" href="#">Navbar</a> */}
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link nlinks text-primary fs-3 fw-semibold" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nlinks text-primary fs-3 fw-semibold" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nlinks text-primary fs-3 fw-semibold" href="#">Projects</a>
-                  </li>
-                  <li class="nav-item"> 
-                    <a class="nav-link nlinks text-primary fs-3 fw-semibold" href="#">Contact</a>
-                  </li>
-                  
-                </ul>
-              </div>
+        <div className='a'>
+          <nav id="navbar-example2" className="navbar mb-3 position-fixed">
+              {/* <a className="navbar-brand" href="#">Navbar</a> */}
+              <ul className="nav nav-pills">
+                <li className="nav-item">
+                  <a className="nav-link fs-3 fw-semibold" href="#scrollspyHeading1">Home</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link fs-3 fw-semibold" href="#scrollspyHeading2">About</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link  fs-3 fw-semibold" href="#scrollspyHeading3">Skills</a>
+                </li>
+              </ul>
+            </nav>
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollspy-example  p-3 rounded-2" tabindex="0">
+              <h4 id="scrollspyHeading1"><Name/></h4>
+              <h4 id="scrollspyHeading2"><About/></h4>
+              <h4 id="scrollspyHeading3"><Skills/></h4>
             </div>
-          </nav>
+        </div>
 
     
   )

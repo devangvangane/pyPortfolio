@@ -1,24 +1,17 @@
-.skills-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+
+
+.skillsText{
+    font-size: 7vw;
+     color: #1a629a;
+     margin: 0%;
 }
 
-.skill h4 {
-  font-size: 20px;
-  color: #1a629a;
-  font-weight: bold;
+img{
+  width: 9vw;
 }
 
-.progress-bar {
-  background-color: #f0f0f0;
-  height: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.progress {
-  height: 100%;
-  background-color: #82bc60;
-  border-radius: 5px;
+img:hover {
+  transform: scale(1.3) rotateZ(360deg);
+  display: inline-block; /* Needed to scale inline elements */
+  transition: transform 0.9s ease-in-out;
 }

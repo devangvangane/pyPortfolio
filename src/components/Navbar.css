@@ -1,9 +1,5 @@
-*{
+nav{
+    z-index: 1;
+    width: 100%;
     background-color: #ffd327;
-}
-
-.nlinks{
-    margin: 10px;
-    text-decoration: none;
-
 }

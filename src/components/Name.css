@@ -1,27 +1,24 @@
 
 
 .nameCard{
-    background-color: #1a629a;
-    /* right: 90px; */
-    top: 20px;
+    background-color: #1a629a;    
 }
+
 .nameCard *{
-    background-color: #1a629a;
+    background-color: rgb(26, 98, 154);
 }
 
 .console {
   font-family: "Courier New", monospace;
   white-space: nowrap;  
   overflow: hidden;     
-   
-  width: 0; /* Start with width of 0 */
- 
+  width: 0;
 }
 
 
 .console.h5 {
     animation: typingH5 3s steps(30) 1s forwards;
-    color: #fce91b;
+    color: rgb(252, 233, 27);
     font-size: 3vw
 }
 
