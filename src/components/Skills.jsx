@@ -4,16 +4,17 @@ import "bootstrap";
 
 function Skills() {
   return (
-    <div className="container" >
+    <div className="container" style={{marginBlock:"80px",width:"100%", height:"80vh"}}>
       <div
         className="sMain card border-0 d-flex"
         style={{backgroundColor:"#ffd327"}}
       >
         <h1 className="skillsText">Skills</h1>
-        <div className="container" style={{marginBlock:"40px"}}>
+        <div className="container maincontainer" style={{marginBlock:"40px"}}>
           <div className="container skillsIcon d-flex justify-content-between">
           <div>
-             <img
+             <img 
+             className="img-fluid"
             src="/python.svg"
             alt=""
             srcset=""

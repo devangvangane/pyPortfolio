@@ -1,11 +1,13 @@
-
-
 .nameCard{
-    background-color: #1a629a;    
+     background-color: rgb(26, 98, 154);
 }
+/* 
+.card-body{
+     background-color: rgb(26, 98, 154);
+} */
 
 .nameCard *{
-    background-color: rgb(26, 98, 154);
+    background-color: #1a629a;
 }
 
 .console {
@@ -16,13 +18,20 @@
 }
 
 
-.console.h5 {
-    animation: typingH5 3s steps(30) 1s forwards;
+.console.h5.p1 {
+    animation: typingH5p1 3s steps(30) 1s forwards;
     color: rgb(252, 233, 27);
     font-size: 3vw
 }
 
-@keyframes typingH5 {
+.console.h5.p2 {
+    animation: typingH5p2 3s steps(30) 8s forwards;
+    color: #fce91b;
+    font-size: 3vw
+}
+
+
+@keyframes typingH5p1 { 
   from {
     width: 0;
   }
@@ -31,14 +40,31 @@
   }
 }
 
-.console.h4 {
-    color: #fce91b;
-    font-size: 2.7vw;
-  animation: typingH4 3s steps(30) 4s forwards;
+@keyframes typingH5p2 { 
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(32ch); 
+  }
 }
 
 
-@keyframes typingH4 {
+.console.h4.p1 {
+    color: #fce91b;
+    font-size: 2.7vw;
+  animation: typingH4p1 3s steps(30) 4s forwards;
+}
+
+.console.h4.p2 {
+    color: #fce91b;
+    font-size: 2.7vw;
+  animation: typingH4p2 3s steps(30) 12s forwards;
+}
+
+
+
+@keyframes typingH4p1 {
   from {
     width: 0;
   }
@@ -46,6 +72,16 @@
     width: calc(22ch);
   }
 }
+
+@keyframes typingH4p2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(19ch);
+  }
+}
+
 
 
 .button {

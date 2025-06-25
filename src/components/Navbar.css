@@ -1,5 +1,34 @@
+*{
+    scroll-behavior: smooth;
+    transition: 1.5s;
+}
+
 nav{
     z-index: 1;
     width: 100%;
     background-color: #ffd327;
 }
+
+.navbar .nav {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  padding: 10px 0; 
+  margin: 0;
+}
+
+.ndivs{
+    display: flex;
+    flex-direction: column;
+}
+
+h4{
+    position: sticky;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    top: 0;
+}
+
+

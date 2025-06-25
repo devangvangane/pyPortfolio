@@ -1,0 +1,45 @@
+.contactText{
+    font-size: 7vw;
+}
+
+
+.imgDiv{
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    transform: translateX(-400px);
+    animation: slideInFromLeft 1s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-400px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.imgDiv img{
+    width: 50%;
+    border-radius: 10px;
+}
+
+.card-body, .card-body * {
+  background-color: #fdc933; /* subtle off-yellow */
+  border-radius: 10px;
+}
+
+.list-unstyled img{
+    width: 40px;
+    margin: 3px;
+}
+
+
+.list-unstyled a{
+    /* width: 40px; */
+    margin: 3px;
+    text-decoration: none;
+}

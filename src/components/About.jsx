@@ -3,10 +3,10 @@ import "./About.css";
 
 function About() {
   return (
-    <div className="container d-flex" style={{marginBlock:"80px"}}>
+    <div className="container display-flex" style={{marginBlock:"80px",width:"100%", height:"70vh"}}>
       <div className="card aMain border-0 ">
         <h1 className="aboutText">About Me</h1>
-        <div className="aboutInfo" style={{ width: "80vw" }}>
+        <div className="aboutInfo" >
           Hi, I'm Devang Vangane — an IT engineering student with a passion for
           full-stack development and creating impactful digital experiences. I
           specialize in a range of technologies including{" "}
