@@ -1,3 +1,6 @@
 *{
   background-color: #ffd327;
+  scroll-behavior: smooth;
+  transition: 1.5s;
+
 }

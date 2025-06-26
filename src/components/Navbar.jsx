@@ -5,11 +5,24 @@ import About from "./About";
 import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import { useEffect } from "react";
 
 function Navbar() {
+
+  useEffect(() => {
+    const scrollEl = document.getElementById('scrollContainer');
+    if (scrollEl) {
+      window.bootstrap.ScrollSpy.getInstance(scrollEl) ||
+        new window.bootstrap.ScrollSpy(scrollEl, {
+          target: '#navbar-example2',
+          rootMargin: '0px 0px -40%',
+        });
+    }
+  }, []);
+
   return (
     <div className="a">
-      <nav id="navbar-example2" className="navbar mb-3 position-fixed">
+      <nav id="navbar-example2" className="navbar mb-3 position-fixed" >
         {/* <a className="navbar-brand" href="#">Navbar</a> */}
         <ul className="nav nav-pills">
           <li className="nav-item">
@@ -42,6 +55,7 @@ function Navbar() {
         </ul>
       </nav>
       <div
+      id="scrollContainer"
         data-bs-spy="scroll"
         data-bs-target="#navbar-example2"
         data-bs-root-margin="0px 0px -40%"
@@ -49,20 +63,20 @@ function Navbar() {
         className="scrollspy-example ndivs  p-3 rounded-2"
         tabindex="0"
       >
-        <div id="scrollspyHeading1">
+        <div id="scrollspyHeading1" className="section">
           <Name />
         </div>
-        <div id="scrollspyHeading2">
+        <div id="scrollspyHeading2" className="section">
           <About />
         </div>
-        <div id="scrollspyHeading3">
+        <div id="scrollspyHeading3" className="section">
           <Skills />
         </div>
-        <div id="scrollspyHeading4">
+        <div id="scrollspyHeading4" className="section">
           <Projects/>
         </div>
 
-        <div id="scrollspyHeading5">
+        <div id="scrollspyHeading5" className="section">
           <Contact/>
         </div>
       </div>

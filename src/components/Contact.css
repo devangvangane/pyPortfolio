@@ -6,7 +6,6 @@
 .imgDiv{
     display: flex;
     justify-content: center;
-    z-index: 1;
     transform: translateX(-400px);
     animation: slideInFromLeft 1s ease-out forwards;
     animation-timeline: view();
@@ -23,8 +22,9 @@
 }
 
 .imgDiv img{
-    width: 50%;
+    width: 60%;
     border-radius: 10px;
+    margin-left: 20%;
 }
 
 .card-body, .card-body * {
