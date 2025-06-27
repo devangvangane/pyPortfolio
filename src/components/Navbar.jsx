@@ -26,29 +26,29 @@ function Navbar() {
         {/* <a className="navbar-brand" href="#">Navbar</a> */}
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <a className="nav-link fs-2 fw-bold" href="#scrollspyHeading1">
+            <a className="nav-link fs-2 fw-bold" href="#name">
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link fs-2 fw-bold" href="#scrollspyHeading2">
+            <a className="nav-link fs-2 fw-bold" href="#about">
               About
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link  fs-2 fw-bold" href="#scrollspyHeading3">
+            <a className="nav-link  fs-2 fw-bold" href="#skills">
               Skills
             </a>
           </li>
 
            <li className="nav-item">
-            <a className="nav-link  fs-2 fw-bold" href="#scrollspyHeading4">
+            <a className="nav-link  fs-2 fw-bold" href="#projects">
               Projects
             </a>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link  fs-2 fw-bold" href="#scrollspyHeading5">
+            <a className="nav-link  fs-2 fw-bold" href="#contact">
               Contact
             </a>
           </li>
@@ -63,20 +63,20 @@ function Navbar() {
         className="scrollspy-example ndivs  p-3 rounded-2"
         tabindex="0"
       >
-        <div id="scrollspyHeading1" className="section">
+        <div id="name" className="section">
           <Name />
         </div>
-        <div id="scrollspyHeading2" className="section">
+        <div id="about" className="section">
           <About />
         </div>
-        <div id="scrollspyHeading3" className="section">
+        <div id="skills" className="section">
           <Skills />
         </div>
-        <div id="scrollspyHeading4" className="section">
+        <div id="projects" className="section">
           <Projects/>
         </div>
 
-        <div id="scrollspyHeading5" className="section">
+        <div id="contact" className="section">
           <Contact/>
         </div>
       </div>

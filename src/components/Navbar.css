@@ -50,4 +50,7 @@ h4{
     top: 0;
 }
 
-
+.nav-pills .nav-link.active {
+  background-color: #1a629a !important; /* ← Replace with your desired color */
+  color: white;              /* Optional: force white text */
+}

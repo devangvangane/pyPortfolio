@@ -7,5 +7,12 @@
 
 
 .carousel-item img{
-    aspect-ratio: 5;
+    aspect-ratio: 6;
 }
+
+.carousel-item h5{
+    color: #1a629a;
+    font-weight: 700;
+    font-family:'Trebuchet MS';
+}
+
