@@ -18,13 +18,13 @@ function Contact() {
       >
         <div className="imgDiv">
           <img
-            src="/me45.png"
-            className="card-img-top img-fluid shadow"
+            src="/devangprofile.jpg"
+            className="card-img-top img-fluid shadow rounded-5"
             alt="..."
           ></img>
         </div>
         <div className="m-2 align-items-center d-flex">
-          <div className="card-body shadow">
+          <div className="card-body">
             <h1 className="card-title contactText" style={{ color: "#1a629a" }}>
               Contact
             </h1>

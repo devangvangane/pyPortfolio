@@ -5,20 +5,17 @@ import About from "./About";
 import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
-import { useEffect } from "react";
+
 
 function Navbar() {
 
-  useEffect(() => {
-    const scrollEl = document.getElementById('scrollContainer');
-    if (scrollEl) {
-      window.bootstrap.ScrollSpy.getInstance(scrollEl) ||
-        new window.bootstrap.ScrollSpy(scrollEl, {
-          target: '#navbar-example2',
-          rootMargin: '0px 0px -40%',
-        });
-    }
-  }, []);
+  const handleScrollTo = (id) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 
   return (
     <div className="a">
@@ -26,42 +23,36 @@ function Navbar() {
         {/* <a className="navbar-brand" href="#">Navbar</a> */}
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <a className="nav-link fs-2 fw-bold" href="#name">
+            <a className="nav-link fs-2 fw-bold" href="#name" onMouseEnter={() => handleScrollTo('name')}>
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link fs-2 fw-bold" href="#about">
+            <a className="nav-link fs-2 fw-bold" href="#about" onMouseEnter={() => handleScrollTo('about')}>
               About
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link  fs-2 fw-bold" href="#skills">
+            <a className="nav-link  fs-2 fw-bold" href="#skills" onMouseEnter={() => handleScrollTo('skills')}>
               Skills
             </a>
           </li>
 
            <li className="nav-item">
-            <a className="nav-link  fs-2 fw-bold" href="#projects">
+            <a className="nav-link  fs-2 fw-bold" href="#projects" onMouseEnter={() => handleScrollTo('projects')}>
               Projects
             </a>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link  fs-2 fw-bold" href="#contact">
+            <a className="nav-link  fs-2 fw-bold" href="#contact" onMouseEnter={() => handleScrollTo('contact')}>
               Contact
             </a>
           </li>
         </ul>
       </nav>
       <div
-      id="scrollContainer"
-        data-bs-spy="scroll"
-        data-bs-target="#navbar-example2"
-        data-bs-root-margin="0px 0px -40%"
-        data-bs-smooth-scroll="true"
         className="scrollspy-example ndivs  p-3 rounded-2"
-        tabindex="0"
       >
         <div id="name" className="section">
           <Name />
