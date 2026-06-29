@@ -305,8 +305,13 @@ export default function Home() {
                 { label: 'LangGraph', icon: <SiLanggraph className="h-6 w-6 rounded-full bg-slate-600/80" /> },
               ].map((tool) => (
                 <div key={tool.label} className="rounded-3xl border border-slate-800/90 bg-slate-950/80 px-5 py-4 text-sm text-slate-300">
-                  <div className="flex items-center gap-3 text-sky-300">{tool.icon}<span className="font-medium text-white">{tool.label}</span></div>
-                </div>
+                      <div className="flex items-center justify-center gap-3 text-sky-300 min-w-0">
+                        <span className="shrink-0">{tool.icon}</span>
+                        <span className="hidden md:inline font-medium text-white">
+                          {tool.label}
+                        </span>
+                      </div>
+                  </div>
               ))}
             </div>
           </div>
