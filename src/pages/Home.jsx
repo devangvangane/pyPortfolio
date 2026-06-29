@@ -65,7 +65,7 @@ const videos = [
     tag: 'Tutorial',
   },
   {
-    title: 'Machine Learning Concepts',
+    title: 'Machine Learning Projects',
     description: 'Simple explanations of ML concepts, model deployment, and project workflows.',
     videoUrl: 'https://youtube.com/@devangvangane?feature=shared',
     tag: 'Learning',
