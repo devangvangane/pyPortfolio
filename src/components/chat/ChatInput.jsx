@@ -1,17 +1,19 @@
 import { useCallback, useState } from 'react'
 import { AiOutlineSend } from 'react-icons/ai'
 
-export default function ChatInput({ value, onChange, onSend }) {
+export default function ChatInput({ value, onChange, onSend, disabled = false }) {
   const [rows, setRows] = useState(2)
 
   const handleKeyDown = useCallback(
     (event) => {
       if (event.key === 'Enter' && !event.shiftKey) {
         event.preventDefault()
-        onSend(value)
+        if (!disabled) {
+          onSend(value)
+        }
       }
     },
-    [onSend, value],
+    [disabled, onSend, value],
   )
 
   const handleChange = (event) => {
@@ -33,13 +35,15 @@ export default function ChatInput({ value, onChange, onSend }) {
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             rows={rows}
-            placeholder="Type a message..."
-            className="min-h-16 w-full resize-none rounded-2xl border border-slate-800/90 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/20"
+            disabled={disabled}
+            placeholder={disabled ? 'Assistant is replying...' : 'Type a message...'}
+            className="min-h-16 w-full resize-none rounded-2xl border border-slate-800/90 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/20 disabled:cursor-not-allowed disabled:opacity-70"
           />
           <button
             type="button"
             onClick={() => onSend(value)}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-cyan-500 text-white shadow-lg transition hover:from-sky-400 hover:to-cyan-400"
+            disabled={disabled || !value.trim()}
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-cyan-500 text-white shadow-lg transition hover:from-sky-400 hover:to-cyan-400 disabled:cursor-not-allowed disabled:opacity-60"
             aria-label="Send message"
           >
             <AiOutlineSend className="h-5 w-5" />

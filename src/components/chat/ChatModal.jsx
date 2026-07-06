@@ -8,7 +8,7 @@ import ChatMessages from './ChatMessages'
 import ChatInput from './ChatInput'
 
 export default function ChatModal() {
-  const { isOpen, closeChat, activeConversation, conversations, createConversation, selectConversation, closeConversation, closeTab, openTabs, drafts, updateDraft, sendMessage } = useChatbot()
+  const { isOpen, closeChat, activeConversation, conversations, createConversation, selectConversation, closeConversation, closeTab, openTabs, drafts, typingConversationId, updateDraft, sendMessage } = useChatbot()
   const modalRef = useRef(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -70,12 +70,13 @@ export default function ChatModal() {
 
             <div className="flex flex-1 min-h-0 flex-col overflow-hidden">
               <div className="flex-1 min-h-0 overflow-y-auto px-4 pb-4 pt-2 sm:px-5">
-                <ChatMessages messages={activeConversation?.messages || []} />
+                <ChatMessages messages={activeConversation?.messages || []} isTyping={typingConversationId === activeConversation?.id} />
               </div>
               <ChatInput
                 value={drafts[activeConversation?.id] || ''}
                 onChange={(value) => updateDraft(value)}
                 onSend={sendMessage}
+                disabled={typingConversationId === activeConversation?.id}
               />
             </div>
           </div>

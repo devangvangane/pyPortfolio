@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { createEmptyConversation, loadSavedConversations, saveConversations } from './ChatStorageService'
 
 const ChatbotContext = createContext(null)
+const CHAT_API_URL = 'http://127.0.0.1:8000/api/chat'
 
 export function ChatbotProvider({ children }) {
   const [conversations, setConversations] = useState([])
@@ -9,6 +10,7 @@ export function ChatbotProvider({ children }) {
   const [activeConversationId, setActiveConversationId] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const [drafts, setDrafts] = useState({})
+  const [typingConversationId, setTypingConversationId] = useState(null)
 
   useEffect(() => {
     const saved = loadSavedConversations()
@@ -99,13 +101,14 @@ export function ChatbotProvider({ children }) {
     setDrafts((prev) => ({ ...prev, [activeConversation.id]: value }))
   }
 
-  const sendMessage = (text) => {
+  const sendMessage = async (text) => {
     if (!activeConversation) return
     const trimmed = text.trim()
     if (!trimmed) return
 
+    const conversationId = activeConversation.id
     const userMessage = {
-      id: `${activeConversation.id}-user-${Date.now()}`,
+      id: `${conversationId}-user-${Date.now()}`,
       role: 'user',
       text: trimmed,
       createdAt: Date.now(),
@@ -113,30 +116,64 @@ export function ChatbotProvider({ children }) {
 
     setConversations((prev) =>
       prev.map((conversation) =>
-        conversation.id === activeConversation.id
+        conversation.id === conversationId
           ? { ...conversation, messages: [...conversation.messages, userMessage] }
           : conversation,
       ),
     )
 
-    setDrafts((prev) => ({ ...prev, [activeConversation.id]: '' }))
+    setDrafts((prev) => ({ ...prev, [conversationId]: '' }))
+    setTypingConversationId(conversationId)
 
-    const reply = {
-      id: `${activeConversation.id}-assistant-${Date.now()}`,
-      role: 'assistant',
-      text: `I received your message: "${trimmed}". I can help explain concepts, suggest next steps, or give ideas for your portfolio site.`,
-      createdAt: Date.now() + 1,
-    }
+    try {
+      const response = await fetch(CHAT_API_URL, {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query: trimmed }),
+      })
 
-    setTimeout(() => {
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`)
+      }
+
+      const data = await response.json()
+      const assistantText = data?.response || data?.message || 'No response received.'
+
+      const assistantMessage = {
+        id: `${conversationId}-assistant-${Date.now()}`,
+        role: 'assistant',
+        text: assistantText,
+        createdAt: Date.now() + 1,
+      }
+
       setConversations((prev) =>
         prev.map((conversation) =>
-          conversation.id === activeConversation.id
-            ? { ...conversation, messages: [...conversation.messages, reply] }
+          conversation.id === conversationId
+            ? { ...conversation, messages: [...conversation.messages, assistantMessage] }
             : conversation,
         ),
       )
-    }, 600)
+    } catch (error) {
+      const assistantMessage = {
+        id: `${conversationId}-assistant-${Date.now()}`,
+        role: 'assistant',
+        text: `Sorry, I could not reach the assistant right now. ${error.message}`,
+        createdAt: Date.now() + 1,
+      }
+
+      setConversations((prev) =>
+        prev.map((conversation) =>
+          conversation.id === conversationId
+            ? { ...conversation, messages: [...conversation.messages, assistantMessage] }
+            : conversation,
+        ),
+      )
+    } finally {
+      setTypingConversationId((prev) => (prev === conversationId ? null : prev))
+    }
   }
 
   const openTabs = useMemo(
@@ -152,6 +189,7 @@ export function ChatbotProvider({ children }) {
       activeConversation,
       isOpen,
       drafts,
+      typingConversationId,
       openChat,
       closeChat,
       createConversation,
@@ -161,7 +199,7 @@ export function ChatbotProvider({ children }) {
       updateDraft,
       sendMessage,
     }),
-    [conversations, openTabs, activeConversationId, activeConversation, isOpen, drafts],
+    [conversations, openTabs, activeConversationId, activeConversation, isOpen, drafts, typingConversationId],
   )
 
   return <ChatbotContext.Provider value={value}>{children}</ChatbotContext.Provider>

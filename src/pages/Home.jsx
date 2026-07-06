@@ -29,25 +29,39 @@ const expertise = [
 
 const projects = [
   {
-    title: 'Conversation Agent Studio',
+    title: 'Volna',
+    description: 'AI based TTS application serving 5 features - EchoText, SpeakFile, VoxVision, PitchVoice, VocaLingo',
+    stack: 'Gemini, PYTESSERACT, Goggletrans, Django',
+    github: 'https://github.com/devangvangane/volna.git',
+    demo: 'https://volna-zhyc.onrender.com',
+  },
+  {
+    title: 'Lang-graph based AI Chatbot',
     description: 'A conversational AI interface for multi-turn tasks, retrieval, and structured prompt tooling.',
     stack: 'OpenAI, LangChain, React, FastAPI, PostgreSQL',
     github: 'https://github.com/devangvangane',
-    demo: '#contact',
+    // demo: '#contact',
   },
   {
-    title: 'RAG Knowledge Portal',
+    title: 'RAG Portfolio',
     description: 'A knowledge retrieval platform with text search, embeddings and secure data access.',
     stack: 'Python, Vector DB, LLMs, React',
     github: 'https://github.com/devangvangane',
-    demo: '#contact',
+    demo: '/',
   },
   {
-    title: 'AI Automation Dashboard',
+    title: 'AI Study Buddy',
     description: 'Agent-driven automation for task orchestration, data workflows and intelligent monitoring.',
-    stack: 'Node, React, Docker, Cloud Functions',
+    stack: 'Node, React, Django, RAG, Ollama',
     github: 'https://github.com/devangvangane',
-    demo: '#contact',
+    // demo: '#contact',
+  },
+   {
+    title: 'CodyShare',
+    description: 'CodeShare lets you paste and share code snippets with syntax highlighting and real-time collaboration. Built for developers, by developers.',
+    stack: 'React, Django',
+    github: 'https://github.com/devangvangane/codeshare',
+    demo: 'https://codeshare-one.vercel.app/',
   },
 ]
 
@@ -67,7 +81,7 @@ const videos = [
   {
     title: 'Machine Learning Projects',
     description: 'Simple explanations of ML concepts, model deployment, and project workflows.',
-    videoUrl: 'https://youtube.com/@devangvangane?feature=shared',
+    videoUrl: 'https://youtube.com/playlist?list=PLhoWepvA5YqdHIhyjv06LWup1F-oHYEGA&si=qcj_HTcfWqzHe2O0',
     tag: 'Learning',
   },
 ]
@@ -75,7 +89,7 @@ const videos = [
 const timeline = [
   {
     period: 'Present',
-    title: 'AI Engineer / GenAI Developer',
+    title: 'AI Engineer / Agentic AI Developer',
     company: 'Vivansh Infotech',
     details: 'Developed AI-first applications with LLM workflows, retrieval systems, and full-stack integrations.',
   },
@@ -93,7 +107,7 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="max-w-2xl"
           >
-            <p className="text-sm uppercase tracking-[0.35em] text-sky-400">AI Engineer — GenAI Developer</p>
+            <p className="text-sm uppercase tracking-[0.35em] text-sky-400">AI Engineer — Agentic AI Developer</p>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Building intelligent systems with AI.
             </h1>
@@ -130,19 +144,26 @@ export default function Home() {
           >
             <div className="pointer-events-none absolute -right-16 top-0 h-40 w-40 rounded-full bg-sky-500/20 blur-3xl" />
             <div className="pointer-events-none absolute left-0 top-24 h-28 w-28 rounded-full bg-violet-500/20 blur-3xl" />
-            <div className="overflow-hidden rounded-5 border border-slate-700/80 bg-slate-950/80 shadow-2xl shadow-slate-950/40">
-              <img src="/devangprofile.jpg" alt="Devang Vangane" className="h-[560px] w-full object-cover object-top sm:h-[580px]" />
+            <div className="relative overflow-hidden rounded-[40px] border border-slate-700/80 bg-slate-950/80 shadow-2xl shadow-slate-950/40">
+              <img
+                src="/devang-diu2.jpeg"
+                alt="Devang Vangane"
+                className="h-[560px] w-full object-cover object-center"
+              />
+
+              {/* Fade overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-black/20" />
             </div>
           </motion.div>
         </div>
       </header>
 
       <main className="space-y-24 px-6 py-16 lg:px-8">
-        <section id="projects" className="mx-auto max-w-7xl">
+       <section id="projects" className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Featured AI Projects</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Selected work in generative AI.</h2>
+              <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Selected work in AI.</h2>
             </div>
             <p className="max-w-xl text-sm leading-6 text-slate-400">
               Placeholder case studies adapted from existing portfolio direction and AI project strategy. Replace with your strongest work.
@@ -150,32 +171,53 @@ export default function Home() {
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {projects.map((project) => (
-              <motion.article
-                key={project.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6 }}
-                className="group rounded-3xl border border-slate-800/90 bg-slate-950/80 p-6 shadow-xl shadow-slate-950/20"
-              >
-                <div className="flex items-center gap-3 text-sky-300">
-                  <div className="h-10 w-10 rounded-2xl bg-sky-500/10 ring-1 ring-sky-400/20" />
-                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                </div>
-                <p className="mt-5 text-sm leading-7 text-slate-300">{project.description}</p>
-                <p className="mt-5 text-xs uppercase tracking-[0.22em] text-slate-500">AI Stack</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{project.stack}</p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a href={project.github} target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-100 transition hover:border-sky-400 hover:text-white">
-                    GitHub
-                  </a>
-                  <a href={project.demo} className="rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-400">
-                    Demo
-                  </a>
-                </div>
-              </motion.article>
-            ))}
+            {projects.map((project, i) => {
+              const tilt = [-3, 2, -2][i % 3]; // vary tilt per card
+              return (
+                <motion.article
+                  key={project.title}
+                  initial={{ opacity: 0, y: 24, rotate: tilt }}
+                  whileInView={{ opacity: 1, y: 0, rotate: tilt }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6 }}
+                  drag
+                  dragConstraints={{ top: -100, bottom: 100, left: -100, right: 100 }}
+                  dragElastic={0.15}
+                  whileDrag={{ scale: 1.05, rotate: tilt * 2.5, cursor: "grabbing" }}
+                  className="group rounded-3xl border border-slate-800/90 bg-slate-950/80 p-6 shadow-xl shadow-slate-950/20 cursor-grab"
+                >
+                  <div className="flex items-center gap-3 text-sky-300">
+                    <div className="h-10 w-10 rounded-2xl bg-sky-500/10 ring-1 ring-sky-400/20 shrink-0" />
+                    <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                  </div>
+                  <p className="mt-5 text-sm leading-7 text-slate-300">{project.description}</p>
+                  <p className="mt-5 text-xs uppercase tracking-[0.22em] text-slate-500">AI Stack</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{project.stack}</p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-100 transition hover:border-sky-400 hover:text-white"
+                    >
+                      GitHub
+                    </a>
+
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        title={`${project.title} - Demo`}
+                       className="rounded-full border border-white bg-white px-4 py-2 text-sm font-medium text-black transition duration-200 hover:bg-slate-100"
+                      >
+                        Demo
+                      </a>
+                    )}
+                  </div>
+                </motion.article>
+              );
+            })}
           </div>
         </section>
 
@@ -340,9 +382,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="rounded-[2rem] border border-slate-800/90 bg-slate-900/70 p-6">
+            <div className="rounded-4xl border border-slate-800/90 bg-slate-900/70 p-6">
               <div className="overflow-hidden rounded-[1.75rem] border border-slate-800/90 bg-slate-950">
-                <img src="/devangprofile.jpg" alt="Devang profile" className="h-full w-full object-cover" />
+                <img src="/devang-diu2.jpeg" alt="Devang profile" className="h-full w-full object-cover" />
               </div>
             </div>
           </div>
