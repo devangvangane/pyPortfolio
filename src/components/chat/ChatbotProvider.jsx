@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { createEmptyConversation, loadSavedConversations, saveConversations } from './ChatStorageService'
 
 const ChatbotContext = createContext(null)
-const CHAT_API_URL = 'http://127.0.0.1:8000/api/chat'
+const CHAT_API_URL = import.meta.env.VITE_API_URL;
 
 export function ChatbotProvider({ children }) {
   const [conversations, setConversations] = useState([])
